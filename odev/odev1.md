@@ -3,7 +3,7 @@
 CENG202 HESAPLAMA TEKNİKLERİ (BİL202) - ÖDEV 1
 
 Ödevde ihtiyacınız olacak csv dosyası: [ogrenci10.csv](ogrenci10.csv) ve ödevin
-pdf versiyonu: [odev1.pdf](odev1.pdf). Ödevin teslimi için son tarih:
+pdf versiyonu: [odev1.pdf](https://sites.google.com/a/bil.omu.edu.tr/ceng202hestek/dosya/ceng202-odev1.pdf?attredirects=0&d=1). Ödevin teslimi için son tarih:
 **05.Mart.2011**. Ödevi kendi `@bil` adresinden,
 <mailto:ceng202hestek@bil.omu.edu.tr/> adresine göndermelisiniz.
 
