@@ -1,6 +1,9 @@
 # Ödev1: Sıralama ve Mükemmel Çırpı Tasarımı
 
-HESAPLAMA TEKNİKLERİ (BİL202) - ÖDEV 1
+CENG202 HESAPLAMA TEKNİKLERİ (BİL202) - ÖDEV 1
+
+Ödevde ihtiyacınız olacak csv dosyası: [ogrenci10.csv](ogrenci10.csv) ve ödevin
+pdf versiyonu: [odev1.pdf](odev1.pdf)
 
 ## Bölüm 1: Mükemmel Çırpma - 75 puan
 
@@ -39,4 +42,3 @@ kullanmanız gerekmektedir. Daha sağlıklı sonuç elde etmek adına tek bir ö
 aratmak yerine belirli sayıda öğeyi aratarak ortalama performans değerleri
 üzerinden hareket ediniz.
 
-Ödevde ihtiyacınız olacak csv dosyası: [ogrenci10.csv](ogrenci10.csv)
