@@ -1,0 +1,74 @@
+
+// Note: Symbols starting with _ are private.
+
+// Current sort problem size.
+var _problem_size = 20;
+
+// Root directory for animations.
+var _root = '/animation';
+
+// Resolution ultiplier for animations.
+var _resolution = 1;
+
+// Map problem size to native image size.
+var _image_sizes = {40: 166, 50: 206, 20: 86, 30: 126};
+
+// List of algorithms.
+var _algorithms = ['insertion-sort', 'selection-sort', 'bubble-sort', 'shell-sort', 'merge-sort', 'heap-sort', 'quick-sort', 'quick-sort-3-way'];
+
+// List of initialization conditions.
+var _conditions = ['random-initial-order', 'nearly-sorted-initial-order', 'reversed-initial-order', 'few-unique-keys'];
+
+// Set static poster images for all animations.
+function _sortInit() {
+	for (var i = 0; i < _algorithms.length; i++) {
+		for (var j = 0; j < _conditions.length; j++) {
+			var id = _conditions[j] + '_' + _algorithms[i];
+			var el = document.getElementById(id);
+			if (!el) { continue; } 
+			el.src = _root + '/' + _problem_size + '/' + _conditions[j] + '/' + _algorithms[i] + '-0.gif';
+		}
+	}
+}
+
+// Set size for all animations.
+function _sortResize() {
+	for (var i = 0; i < _algorithms.length; i++) {
+		for (var j = 0; j < _conditions.length; j++) {
+			var id = _conditions[j] + '_' + _algorithms[i];
+			var el = document.getElementById(id);
+			if (!el) { continue; } 
+			var sz = _image_sizes[_problem_size] * _resolution;
+			el.width = sz;
+			el.height = sz;
+		}
+	}
+}
+
+// Change problem size.
+function selectSize(n) {
+	_problem_size = n;
+	_sortInit();
+	_sortResize();
+}
+
+// Change image resolution.
+function selectResolution(x) {
+	_resolution = x;
+	_sortResize();
+}
+
+// Restart a specified list of animations.
+function sortRestart(init,alg) {
+	for (var i = 0; i < _algorithms.length; i++) {
+		for (var j = 0; j < _conditions.length; j++) {
+			if ((alg == '*' || alg == _algorithms[i]) && 
+			(init == '*' || init == _conditions[j])) {
+				var id = _conditions[j] + '_' + _algorithms[i];
+				var el = document.getElementById(id);
+				if (!el) { continue; } 
+				el.src = _root + '/' + _problem_size + '/' + _conditions[j] + '/' + _algorithms[i] + '.gif';
+			}
+		}
+	}
+}

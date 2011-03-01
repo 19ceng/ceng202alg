@@ -1,0 +1,220 @@
+/***************************************************************************
+** reset  
+*/
+html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,input {
+	margin: 0; 
+	padding: 0; 
+}
+h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,em,strong,th { 
+	font-size: 1em; 
+	font-weight: normal; 
+	font-style: normal; 
+}
+ul,ol { 
+	list-style: none; 
+}
+fieldset,img { 
+	border: none;
+}
+caption,th { 
+	text-align: left; 
+}
+table { 
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/********************************************************************************
+** text links
+*/
+a { 
+	text-decoration: none; 
+	white-space: nowrap;
+	border-bottom: 1px dotted #8B0000;
+}
+a.restart { 
+	border: none;
+}
+a:link, a:visited { 
+	color: #8B0000;
+}
+a:hover { 
+	color: red; 
+}
+a:active { 
+	color: #8B0000; 
+}
+a img { 
+	border: 1px solid white;
+}
+a:link img, a:visited img { 
+	border: 1px solid white;
+}
+a:hover img { 
+	border: 1px dotted #8B0000;
+}
+a:active img { 
+	border: 1px solid white;
+}
+
+a.image { border:none; }
+
+/***************************************************************************
+** 
+*/
+.clear { 
+	clear: both;
+}
+body { 
+	margin:0;
+}
+div.wrapper {
+	margin:1ex 1em;
+	width: 900px;
+}
+h1 { 
+	font-size: 200%;
+	margin-bottom: 1ex;
+	border-bottom: 3px solid #8B0000;
+/*	width: 735px;*/
+}
+h2 { 
+	font-size: 150%;
+	margin-bottom: 1ex;
+	border-bottom: 3px solid #8B0000;
+}
+ul { 
+	margin-left: 20px;
+	list-style: square outside;
+}
+li { 
+	margin-bottom: 0.5ex;
+}
+ul, p { 
+	margin-bottom: 2ex;
+}
+sup, sub { 
+	font-size: 60%;
+}
+#discuss {
+	position:relative;
+	bottom:5px;
+	margin-left:5px;
+	font-family:courier;
+	font-size:12px;
+	border: 1px solid #aaa;
+	padding:0 2px;
+}
+#sizes { 
+	font-size: 120%;
+	margin-bottom: 1ex;
+	position: relative;
+}
+#sizes .restart { 
+	float:left; 
+	margin-right:10px;
+}
+#others { 
+	font-size: 120%;
+	margin-bottom: 2ex;
+}
+#others1 { 
+	font-size: 120%;
+	margin-bottom: 1ex;
+}
+#others2 { 
+	font-size: 120%;
+	margin-bottom: 2ex;
+}
+#back { 
+	font-size: 120%;
+	margin-bottom: 1ex;
+}
+.algorithm_wrapper {
+	margin-bottom:2ex;
+}
+table { 
+	margin-bottom: 2ex;
+}
+th, td { 
+	text-align: center;
+	font-size: 120%;
+}
+th, td { 
+	padding: 5px; 
+	border: 1px solid gray;
+}
+#text { 
+	margin-bottom: 2ex;
+}
+.cellhead { 
+	margin-bottom: 1ex;
+	text-align: center;
+}
+#discussion { 
+	width: 437px;
+	float: left;
+	padding-right: 10px;
+	/*     border-right: 1px solid #ccc;*/
+}
+#directions { 
+	width: 437px;
+	float: left;
+	padding-left: 10px;
+}
+#banner {
+	width:915px;
+}
+#banner table { width:100%; }
+#banner td { padding:0; margin:0; border:0; }
+#translate_gadget {
+	margin-top:1ex;
+} 
+#header {
+	float:right;
+	text-align:right;
+/*	line-height:175%;*/
+	position:relative;
+	top:2ex;
+}
+#comments {
+	clear: both;
+	margin-bottom: 2ex;
+}
+#login-status {
+	text-align: left;
+	font-style: italic;
+}
+.comment {
+	margin-top: 1ex;
+}
+#comments textarea {
+	width: 595px;
+	height: 120px;
+	font-size: 16px;
+}
+.comment .author {
+	color: #8B0000;
+}
+#comment_entry {
+	border: 2px solid #8B0000;
+	padding: 1ex;
+	width: 600px;
+}
+#footer { 
+	margin-top: 2ex;
+	clear: both;
+	font-size: 80%;
+	font-style: italic;
+	border-top: 3px solid #8B0000;
+}
+#footer table { width:100%; }
+#footer td { white-space:nowrap;  vertical-align:top; }
+#footer td { padding:0; margin:0; border:0; }
+#footer td#copyright { text-align:left; padding-top:2px; width:390px; }
+#footer td#validate { padding-top:3px; }
+#footer td#counter { text-align:right; padding-top:2px; }
+
+pre i { color:#8B0000; }
+pre i.invariant { color:#006400; }

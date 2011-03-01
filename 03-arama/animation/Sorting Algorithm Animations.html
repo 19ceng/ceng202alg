@@ -1,0 +1,1033 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+	
+	<title>Sorting Algorithm Animations</title>
+	<meta name="Description" content="Animation, code, analysis, and discussion of 8 sorting algorithms on 4 initial conditions.">
+	
+	<meta name="verify-v1" content="9GdThEYDHqv4ONz63P284/PgLz28QOtufIyiJZLuGKk=">
+	<link rel="stylesheet" type="text/css" href="Sorting%20Algorithm%20Animations_dosyalar/sort.css">
+	<script type="text/javascript" src="Sorting%20Algorithm%20Animations_dosyalar/prototype.js"></script>
+	<script type="text/javascript" src="Sorting%20Algorithm%20Animations_dosyalar/sort.html"></script>
+<link media="all" href="Sorting%20Algorithm%20Animations_dosyalar/widget32.css" type="text/css" rel="stylesheet"><script src="Sorting%20Algorithm%20Animations_dosyalar/challenge_002" type="text/javascript"></script><style type="text/css">.recaptchatable td img {
+/* see http://developer.mozilla.org/en/docs/Images%2C_Tables%2C_and_Mysterious_Gaps */
+display: block;
+}
+.recaptchatable .recaptcha_r1_c1 { background: url(http://api.recaptcha.net/img/red/sprite.png) -0px -63px no-repeat; width: 318px; height: 9px; }
+.recaptchatable .recaptcha_r2_c1 { background: url(http://api.recaptcha.net/img/red/sprite.png) -18px -0px no-repeat; width: 9px; height: 57px; }
+.recaptchatable .recaptcha_r2_c2 { background: url(http://api.recaptcha.net/img/red/sprite.png) -27px -0px no-repeat; width: 9px; height: 57px; }
+.recaptchatable .recaptcha_r3_c1 { background: url(http://api.recaptcha.net/img/red/sprite.png) -0px -0px no-repeat; width: 9px; height: 63px; }
+.recaptchatable .recaptcha_r3_c2 { background: url(http://api.recaptcha.net/img/red/sprite.png) -18px -57px no-repeat; width: 300px; height: 6px; }
+.recaptchatable .recaptcha_r3_c3 { background: url(http://api.recaptcha.net/img/red/sprite.png) -9px -0px no-repeat; width: 9px; height: 63px; }
+.recaptchatable .recaptcha_r4_c1 { background: url(http://api.recaptcha.net/img/red/sprite.png) -43px -0px no-repeat; width: 171px; height: 49px; }
+.recaptchatable .recaptcha_r4_c2 { background: url(http://api.recaptcha.net/img/red/sprite.png) -36px -0px no-repeat; width: 7px; height: 57px; }
+.recaptchatable .recaptcha_r4_c4 { background: url(http://api.recaptcha.net/img/red/sprite.png) -214px -0px no-repeat; width: 97px; height: 57px; }
+.recaptchatable .recaptcha_r7_c1 { background: url(http://api.recaptcha.net/img/red/sprite.png) -43px -49px no-repeat; width: 171px; height: 8px; }
+.recaptchatable .recaptcha_r8_c1 { background: url(http://api.recaptcha.net/img/red/sprite.png) -43px -49px no-repeat; width: 25px; height: 8px; }
+.recaptchatable .recaptcha_image_cell center img { height:57px;}
+.recaptchatable .recaptcha_image_cell center { height:57px;}
+.recaptchatable .recaptcha_image_cell {
+background-color:white; height:57px;
+}
+/* some people break their style sheet, we need to clean up after them */
+#recaptcha_area, #recaptcha_table {
+width: 318px !important;
+}
+.recaptchatable, #recaptcha_area tr, #recaptcha_area td, #recaptcha_area th {
+margin:0px !important;
+border:0px !important;
+padding:0px !important;
+border-collapse: collapse !important;
+vertical-align: middle !important;
+}
+.recaptchatable * {
+margin:0px;
+padding:0px;
+border:0px;
+font-family:helvetica,sans-serif;
+font-size:8pt;
+color:black;
+position:static;
+top:auto;
+left:auto;
+right:auto;
+bottom:auto;
+text-align:left !important;
+}
+.recaptchatable #recaptcha_image {
+margin:auto;
+}
+.recaptchatable img {
+border:0px !important;
+margin:0px !important;
+padding:0px !important;
+}
+.recaptchatable a, .recaptchatable a:hover {
+-moz-outline:none;
+border:0px !important;
+padding:0px !important;
+text-decoration:none;
+color:blue;
+background:none !important;
+font-weight: normal;
+}
+.recaptcha_input_area {
+position:relative !important;
+width:146px !important;
+height:45px !important;
+margin-left:20px !important;
+margin-right:5px !important;
+margin-top:4px !important;
+background:none !important;
+}
+.recaptchatable label.recaptcha_input_area_text {
+margin:0px !important;  
+padding:0px !important;
+position:static !important;
+top:auto !important;
+left:auto !important;
+right:auto !important;
+bottom:auto !important;
+background:none !important;
+height:auto !important;
+width:auto !important;
+}
+.recaptcha_theme_red label.recaptcha_input_area_text,
+.recaptcha_theme_white label.recaptcha_input_area_text {
+color:black !important;
+}
+.recaptcha_theme_blackglass label.recaptcha_input_area_text {
+color:white !important;
+}
+.recaptchatable #recaptcha_response_field  {
+width:145px !important;
+position:absolute !important;
+bottom:7px !important;
+padding:0px !important;
+margin:0px !important;
+font-size:10pt;
+}
+.recaptcha_theme_blackglass #recaptcha_response_field,
+.recaptcha_theme_white #recaptcha_response_field {
+border: 1px solid gray;
+}
+.recaptcha_theme_red #recaptcha_response_field {
+border:1px solid #cca940;
+}
+.recaptcha_audio_cant_hear_link {
+font-size:7pt;
+color:black;
+}
+.recaptchatable {
+line-height:1em;
+}
+#recaptcha_instructions_error {
+color:red !important;
+}
+
+
+.recaptcha_is_showing_audio .recaptcha_only_if_image,.recaptcha_isnot_showing_audio .recaptcha_only_if_audio,.recaptcha_had_incorrect_sol .recaptcha_only_if_no_incorrect_sol,.recaptcha_nothad_incorrect_sol .recaptcha_only_if_incorrect_sol{display:none !important}</style><style type="text/css">/**
+ * Highlight style classes
+ * .a background color
+ * .b underline
+ * .c underline + font color
+ */
+ 
+@media screen{
+em.diigoHighlight {
+	text-align:inherit;
+	text-decoration: inherit;
+	line-height:inherit;
+	font:inherit;
+	color:inherit;
+	display:inline;
+	position:relative;
+}
+em.diigoHighlight.a.mouseOvered {
+	background-color: #ffc62a !important;
+}	
+
+em.diigoHighlight.b.mouseOvered, em.diigoHighlight.c.mouseOvered {
+	border-bottom: solid 2px #ffc62a;
+}
+	
+em.diigoHighlight.c {
+	color: #000099;
+}
+em.diigoHighlight.c.mouseOvered {
+	color: #ffc62a;
+}	
+
+em.diigoHighlight.a.yellow {
+	background-color: #FF9;
+}
+
+em.diigoHighlight.b.yellow, em.diigoHighlight.c.yellow {
+	border-bottom: solid 2px #FF9;
+}
+	
+img.diigoHighlight.yellow {/*image highlight*/
+	cursor: pointer; 
+	outline:2px solid #FF9;
+}
+	
+em.diigoHighlight.a.blue {
+	background-color: #ABD5FF;
+}
+
+em.diigoHighlight.b.blue, em.diigoHighlight.c.blue {
+	border-bottom: solid 2px #ABD5FF;
+}
+	
+img.diigoHighlight.blue {/*image highlight*/
+	cursor: pointer; 
+	outline:2px solid #ABD5FF;
+}
+	
+	
+em.diigoHighlight.a.green {
+	background-color: #B2E57E;
+}
+
+em.diigoHighlight.b.green, em.diigoHighlight.c.green {
+	border-bottom: solid 2px #B2E57E;
+}
+
+img.diigoHighlight.green {/*image highlight*/
+	cursor: pointer; 
+	outline:2px solid #B2E57E;
+}	
+	
+	
+em.diigoHighlight.a.pink {
+	background-color: #ffcccc;
+}
+
+em.diigoHighlight.b.pink, em.diigoHighlight.c.pink {
+	border-bottom: solid 2px #ffcccc;
+}
+	
+img.diigoHighlight.pink {/*image highlight*/
+	cursor: pointer; 
+	outline:2px solid #ffcccc;
+}	
+	
+img.diigoHighlight.mouseOvered {
+	cursor: pointer; 
+	outline:2px solid #ffc62a;
+}	
+	
+
+div.diigotb-inline-cloud{
+	position:fixed !important;
+	width:440px !important;
+	height:370px !important;
+	left:0;top:0;
+	background-color:#fef5c7 !important;
+	z-index:9999999999 !important;
+	display:none;
+	-moz-border-radius:15px !important;
+}
+/*  capture image */
+
+#diigotb-upload-cover{
+	background:transparent url(chrome://diigotb/skin/cover.png) repeat scroll 0 0;
+	cursor:crosshair;
+	height:100%;
+	left:0;
+	position:fixed;
+	top:0;
+	width:100%;
+	z-index:99999;
+}
+#diigotb-upload-box{
+  z-index: 190000; 
+  background: transparent url(chrome://diigotb/skin/cover.png) repeat scroll 0 0; 
+  border: 1px solid #fff;
+  position: absolute;
+  cursor: crosshair;
+}
+.diigotb-upload-result{
+  z-index: 100000; 
+  background: url(chrome://diigotb/skin/temp.png); 
+  border: 1px solid #000;
+  position:fixed;
+}		
+
+/*highlight label*/
+.diigoHighlight .diigoHighlightLabel sup {
+	font:normal normal normal 8px/8px "lucida grande",tahoma,verdana,arial,sans-serif;
+	text-decoration:none;
+	background-color:inherit;
+	cursor:default;
+}
+	
+body.diigoHiPen.yellow{
+	cursor:url(chrome://diigotb/skin/highlighter-orange.cur), text !important
+}
+	
+body.diigoHiPen.blue{
+	cursor:url(chrome://diigotb/skin/highlighter-blue.cur), text !important
+}
+
+body.diigoHiPen.green{
+	cursor:url(chrome://diigotb/skin/highlighter-green.cur), text !important
+}	
+	
+body.diigoHiPen.pink{
+	cursor:url(chrome://diigotb/skin/highlighter-pink.cur), text !important
+}
+em.diigoHighlight.type_0.commented {	
+	padding-left:30px;
+}
+	
+/*float note*/
+div.diigoHighlight.type_2 {
+	position:absolute;
+	width:29px;
+	height:36px;
+	text-align:center;
+	background:transparent url('chrome://diigotb/skin/float_icon.png') no-repeat 50% 50%;
+	z-index:9996;
+}
+div.diigoHighlight.type_2.mouseOvered {
+	position:absolute;
+	width:37px;
+	height:31px;
+	text-align:center;
+	background:transparent url('chrome://diigotb/skin/float_icon.png') no-repeat;
+	z-index:9996;
+}	
+div.diigoHighlight.type_2 span {
+	color:#000;
+	font:bold 13px Arial, Helvetica, sans-serif;
+	cursor: default;
+	line-height: 37px;
+	text-shadow: #fff 0 1px 0;
+}
+/*
+* html div.diigoHighlight.type_2{
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale, src="http://www.diigo.com/javascripts/webtoolbar/images/float_icon.png");
+	overflow:hidden;
+	background:none;
+}
+*/
+	
+
+div.diigoIcon.commented.TextIcon.diigoEdit{
+	background-repeat:no-repeat !important;
+	background-position:right !important;
+}
+
+	
+div.diigoIcon.commented.ImageIcon.diigoEdit{
+	background-repeat:no-repeat !important;
+	background-position:right !important;
+}
+
+
+/*mouse over effect*/
+/*
+.diigoHighlight.id_190e5778b533dc0fa1b1660653a4f6f5 {outline: 2px dotted green !important;}
+*/
+div.diigoIcon{
+	cursor:pointer !important;
+	margin: 0pt; 
+	padding: 0px 0px 0px 0px;
+	position: absolute;
+	display:none;
+	width: 24px !important; 
+	z-index:999999;
+	height: 23px !important;
+	background: transparent url('chrome://diigotb/skin/edit-highlight.png') no-repeat left;
+}
+
+div.diigoIcon span{
+	color:#000000;
+	display:block;
+	font-family:Helvetica,Arial,sans-serif;
+	font-size:13px;
+	font-weight:700;
+	line-height:18px;
+	text-align:center;
+	text-shadow:0 1px 1px #FFFFFF;
+}
+
+div.diigoIcon.commented.ImageIcon{
+	display:block !important;
+	background-color: transparent !important;
+}
+	
+div.diigoIcon:hover{
+	background-background: transparent !important;
+	background-repeat:no-repeat !important;
+	background-position:right !important;
+}
+	
+div.diigoIcon.commented.TextIcon{
+	display:block !important;
+	left:0;
+	bottom:0;
+}
+	
+div.diigoIcon.commented.public{
+	background: #FFFFFF url('chrome://diigotb/skin/public-annotation.png') no-repeat left;
+}
+
+div.diigoIcon.commented.private{
+	background: #FFFFFF url('chrome://diigotb/skin/private-annotation.png') no-repeat left;
+}
+	
+div.diigoIcon.commented.group{
+	background: #FFFFFF url('chrome://diigotb/skin/group-annotation.png') no-repeat left;
+}
+	
+/*Clip video*/
+div.diigoClipVideo{
+	float:left;
+	height:16px;
+	padding:0 16px 0 6px;
+	background:#f5f5f5 url(chrome://diigotb/skin/toolbar-clip-bg.gif) no-repeat right 0;
+	border:1px solid #ccc;
+	border-bottom-width:0;
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	z-index:999;
+	position:absolute;
+}
+
+div.diigoClipVideo.clipped {
+  background-position: right -32px; left: 717px; top: 135px;
+}
+
+	div.diigoClipVideo span{
+		font-weight:bold;
+		font-size:10px;
+		line-height:16px;
+		text-decoration:underline;
+		color:#03f;
+		cursor:pointer;
+		margin-right:6px
+	}
+	div.diigoClipVideo span:hover,div.diigoClipVideo span:active{
+		color:#00f
+	}
+	/*.diigolet input{
+		font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+		font-size:9px;
+	}*/
+}
+
+
+@media print{
+em.diigoHighlight.a, em.diigoHighlight.b, em.diigoHighlight.c {
+	border-bottom:0.5pt dashed Black;
+}
+
+
+/*image highlight*/
+/*no inline comments*/
+img.diigoHighlight {
+	border:0.5pt dashed Black
+}
+
+/*float note*/
+div.diigoHighlight.type_2 {
+	display:none
+}
+div.diigoHighlight.type_2 span {
+	display:none
+}
+}</style><style id="diigo-activeHighlight" type="text/css">dummyRuleForDigg{}</style></head><body onload="selectSize(20);"><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="Sorting%20Algorithm%20Animations_dosyalar/sh14.html" style="border: 0pt none ; height: 1px; width: 1px; position: absolute; z-index: 100000; left: 0pt; top: 0pt;" id="_atssh393"></iframe></div>
+
+	
+
+	<div class="wrapper">
+		
+		
+
+		
+		<div id="header">
+			<!-- AddThis Button -->
+			<script type="text/javascript">
+			addthis_pub  = "dmartin@cs.bc.edu";
+			addthis_options = 'favorites, email, digg, stumbleupon, reddit, delicious, facebook, google, live, more';
+			</script>
+			<a class="image" href="http://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '', 'Sorting Algorithm Animations, Code, Analysis, and Discussion')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="Sorting%20Algorithm%20Animations_dosyalar/button1-share.gif" alt="" height="16" width="125" border="0"></a>
+			<script type="text/javascript" src="Sorting%20Algorithm%20Animations_dosyalar/addthis_widget.js"></script>
+			<!-- <br/> -->
+			<!-- Discuss Link -->
+			<!-- <a id="discuss" target="_blank" href="http://david-royal-martin.blogspot.com/2008/11/sorting-algorithm-animations-on-google.html" title="Leave comments or discuss this website.">COMMENT/DISCUSS</a> -->
+		</div>
+
+		
+<h1>Sorting Algorithm Animations</h1>
+<div id="sizes" style="clear: both;">
+	Problem Size:&nbsp;
+<a href="javascript:selectSize(20);" title="Set problem size to 20">20</a>
+·
+<a href="javascript:selectSize(30);" title="Set problem size to 30">30</a>
+·
+<a href="javascript:selectSize(40);" title="Set problem size to 40">40</a>
+·
+<a href="javascript:selectSize(50);" title="Set problem size to 50">50</a>
+&nbsp;
+&nbsp;
+Magnification:&nbsp;
+<a href="javascript:selectResolution(1);" title="Set image magnification to 1x">1x</a>
+·
+<a href="javascript:selectResolution(2);" title="Set image magnification to 2x">2x</a>
+·
+<a href="javascript:selectResolution(3);" title="Set image magnification to 3x">3x</a>
+
+</div>
+<div id="others1">
+	Algorithm:&nbsp;
+
+<a href="http://www.sorting-algorithms.com/insertion-sort" title="Explore this algorithm">Insertion</a>
+
+·
+
+
+<a href="http://www.sorting-algorithms.com/selection-sort" title="Explore this algorithm">Selection</a>
+
+·
+
+
+<a href="http://www.sorting-algorithms.com/bubble-sort" title="Explore this algorithm">Bubble</a>
+
+·
+
+
+<a href="http://www.sorting-algorithms.com/shell-sort" title="Explore this algorithm">Shell</a>
+
+·
+
+
+<a href="http://www.sorting-algorithms.com/merge-sort" title="Explore this algorithm">Merge</a>
+
+·
+
+
+<a href="http://www.sorting-algorithms.com/heap-sort" title="Explore this algorithm">Heap</a>
+
+·
+
+
+<a href="http://www.sorting-algorithms.com/quick-sort" title="Explore this algorithm">Quick</a>
+
+·
+
+
+<a href="http://www.sorting-algorithms.com/quick-sort-3-way" title="Explore this algorithm">Quick3</a>
+
+
+
+</div>
+<div id="others2">
+	Initial Condition:&nbsp;
+
+<a href="http://www.sorting-algorithms.com/random-initial-order" title="Explore this initial condition">Random</a>
+
+·
+
+
+<a href="http://www.sorting-algorithms.com/nearly-sorted-initial-order" title="Explore this initial condition">Nearly Sorted</a>
+
+·
+
+
+<a href="http://www.sorting-algorithms.com/reversed-initial-order" title="Explore this initial condition">Reversed</a>
+
+·
+
+
+<a href="http://www.sorting-algorithms.com/few-unique-keys" title="Explore this initial condition">Few Unique</a>
+
+
+
+</div>
+
+<table>
+	<tbody><tr>
+		<th>
+			<a class="restart" href="javascript:sortRestart('*','*');" title="Restart all"><img src="Sorting%20Algorithm%20Animations_dosyalar/reload-48x48.jpg" alt=""></a>
+		</th>
+		
+		<th>
+			<a class="restart" href="javascript:sortRestart('*','insertion-sort');" title="Restart column">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/insertion-sort" title="Explore this algorithm">Insertion</a>
+		</th>
+		
+		<th>
+			<a class="restart" href="javascript:sortRestart('*','selection-sort');" title="Restart column">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/selection-sort" title="Explore this algorithm">Selection</a>
+		</th>
+		
+		<th>
+			<a class="restart" href="javascript:sortRestart('*','bubble-sort');" title="Restart column">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/bubble-sort" title="Explore this algorithm">Bubble</a>
+		</th>
+		
+		<th>
+			<a class="restart" href="javascript:sortRestart('*','shell-sort');" title="Restart column">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/shell-sort" title="Explore this algorithm">Shell</a>
+		</th>
+		
+		<th>
+			<a class="restart" href="javascript:sortRestart('*','merge-sort');" title="Restart column">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/merge-sort" title="Explore this algorithm">Merge</a>
+		</th>
+		
+		<th>
+			<a class="restart" href="javascript:sortRestart('*','heap-sort');" title="Restart column">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/heap-sort" title="Explore this algorithm">Heap</a>
+		</th>
+		
+		<th>
+			<a class="restart" href="javascript:sortRestart('*','quick-sort');" title="Restart column">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/quick-sort" title="Explore this algorithm">Quick</a>
+		</th>
+		
+		<th>
+			<a class="restart" href="javascript:sortRestart('*','quick-sort-3-way');" title="Restart column">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/quick-sort-3-way" title="Explore this algorithm">Quick3</a>
+		</th>
+		
+	</tr>
+	
+	<tr>
+		<th>
+			<a class="restart" href="javascript:sortRestart('random-initial-order','*');" title="Restart row">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/random-initial-order" title="Explore this initial condition">Random</a>
+		</th>
+		
+		<td>
+			<img id="random-initial-order_insertion-sort" title="Click to restart" onclick="sortRestart('random-initial-order','insertion-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/insertion-sort-0_002.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="random-initial-order_selection-sort" title="Click to restart" onclick="sortRestart('random-initial-order','selection-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/selection-sort-0_002.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="random-initial-order_bubble-sort" title="Click to restart" onclick="sortRestart('random-initial-order','bubble-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/bubble-sort-0.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="random-initial-order_shell-sort" title="Click to restart" onclick="sortRestart('random-initial-order','shell-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/shell-sort-0.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="random-initial-order_merge-sort" title="Click to restart" onclick="sortRestart('random-initial-order','merge-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/merge-sort-0_003.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="random-initial-order_heap-sort" title="Click to restart" onclick="sortRestart('random-initial-order','heap-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/heap-sort-0_002.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="random-initial-order_quick-sort" title="Click to restart" onclick="sortRestart('random-initial-order','quick-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/quick-sort-0.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="random-initial-order_quick-sort-3-way" title="Click to restart" onclick="sortRestart('random-initial-order','quick-sort-3-way');" src="Sorting%20Algorithm%20Animations_dosyalar/quick-sort-3-way-0_002.gif" alt="" height="86" width="86">
+		</td>
+		
+	</tr>
+	
+	<tr>
+		<th>
+			<a class="restart" href="javascript:sortRestart('nearly-sorted-initial-order','*');" title="Restart row">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/nearly-sorted-initial-order" title="Explore this initial condition">Nearly Sorted</a>
+		</th>
+		
+		<td>
+			<img id="nearly-sorted-initial-order_insertion-sort" title="Click to restart" onclick="sortRestart('nearly-sorted-initial-order','insertion-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/insertion-sort-0_004.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="nearly-sorted-initial-order_selection-sort" title="Click to restart" onclick="sortRestart('nearly-sorted-initial-order','selection-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/selection-sort-0.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="nearly-sorted-initial-order_bubble-sort" title="Click to restart" onclick="sortRestart('nearly-sorted-initial-order','bubble-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/bubble-sort-0_003.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="nearly-sorted-initial-order_shell-sort" title="Click to restart" onclick="sortRestart('nearly-sorted-initial-order','shell-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/shell-sort-0_004.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="nearly-sorted-initial-order_merge-sort" title="Click to restart" onclick="sortRestart('nearly-sorted-initial-order','merge-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/merge-sort-0_002.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="nearly-sorted-initial-order_heap-sort" title="Click to restart" onclick="sortRestart('nearly-sorted-initial-order','heap-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/heap-sort-0_004.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="nearly-sorted-initial-order_quick-sort" title="Click to restart" onclick="sortRestart('nearly-sorted-initial-order','quick-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/quick-sort-0_004.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="nearly-sorted-initial-order_quick-sort-3-way" title="Click to restart" onclick="sortRestart('nearly-sorted-initial-order','quick-sort-3-way');" src="Sorting%20Algorithm%20Animations_dosyalar/quick-sort-3-way-0_003.gif" alt="" height="86" width="86">
+		</td>
+		
+	</tr>
+	
+	<tr>
+		<th>
+			<a class="restart" href="javascript:sortRestart('reversed-initial-order','*');" title="Restart row">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/reversed-initial-order" title="Explore this initial condition">Reversed</a>
+		</th>
+		
+		<td>
+			<img id="reversed-initial-order_insertion-sort" title="Click to restart" onclick="sortRestart('reversed-initial-order','insertion-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/insertion-sort-0_003.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="reversed-initial-order_selection-sort" title="Click to restart" onclick="sortRestart('reversed-initial-order','selection-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/selection-sort-0_003.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="reversed-initial-order_bubble-sort" title="Click to restart" onclick="sortRestart('reversed-initial-order','bubble-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/bubble-sort-0_002.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="reversed-initial-order_shell-sort" title="Click to restart" onclick="sortRestart('reversed-initial-order','shell-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/shell-sort-0_003.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="reversed-initial-order_merge-sort" title="Click to restart" onclick="sortRestart('reversed-initial-order','merge-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/merge-sort-0_004.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="reversed-initial-order_heap-sort" title="Click to restart" onclick="sortRestart('reversed-initial-order','heap-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/heap-sort-0_003.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="reversed-initial-order_quick-sort" title="Click to restart" onclick="sortRestart('reversed-initial-order','quick-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/quick-sort-0_003.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="reversed-initial-order_quick-sort-3-way" title="Click to restart" onclick="sortRestart('reversed-initial-order','quick-sort-3-way');" src="Sorting%20Algorithm%20Animations_dosyalar/quick-sort-3-way-0_004.gif" alt="" height="86" width="86">
+		</td>
+		
+	</tr>
+	
+	<tr>
+		<th>
+			<a class="restart" href="javascript:sortRestart('few-unique-keys','*');" title="Restart row">
+				<img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt="">
+			</a><br>
+			<a href="http://www.sorting-algorithms.com/few-unique-keys" title="Explore this initial condition">Few Unique</a>
+		</th>
+		
+		<td>
+			<img id="few-unique-keys_insertion-sort" title="Click to restart" onclick="sortRestart('few-unique-keys','insertion-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/insertion-sort-0.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="few-unique-keys_selection-sort" title="Click to restart" onclick="sortRestart('few-unique-keys','selection-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/selection-sort-0_004.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="few-unique-keys_bubble-sort" title="Click to restart" onclick="sortRestart('few-unique-keys','bubble-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/bubble-sort-0_004.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="few-unique-keys_shell-sort" title="Click to restart" onclick="sortRestart('few-unique-keys','shell-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/shell-sort-0_002.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="few-unique-keys_merge-sort" title="Click to restart" onclick="sortRestart('few-unique-keys','merge-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/merge-sort-0.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="few-unique-keys_heap-sort" title="Click to restart" onclick="sortRestart('few-unique-keys','heap-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/heap-sort-0.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="few-unique-keys_quick-sort" title="Click to restart" onclick="sortRestart('few-unique-keys','quick-sort');" src="Sorting%20Algorithm%20Animations_dosyalar/quick-sort-0_002.gif" alt="" height="86" width="86">
+		</td>
+		
+		<td>
+			<img id="few-unique-keys_quick-sort-3-way" title="Click to restart" onclick="sortRestart('few-unique-keys','quick-sort-3-way');" src="Sorting%20Algorithm%20Animations_dosyalar/quick-sort-3-way-0.gif" alt="" height="86" width="86">
+		</td>
+		
+	</tr>
+	
+</tbody></table>
+
+<div id="text">
+	<div id="discussion">
+		<h2>Discussion</h2>
+		<p>
+			These pages show 8 different sorting algorithms on 4 different 
+			initial conditions.  These visualizations are intended to:
+		</p>
+		<ul>
+			<li> Show how each algorithm operates. </li>
+			<li> Show that there is no best sorting algorithm. </li>
+			<li> Show the advantages and disadvantages of each algorithm. </li>
+			<li> 
+				Show that worse-case asymptotic behavior is not always the deciding
+				factor in choosing an algorithm.
+			</li>
+			<li> Show that the initial condition (input order and key
+				distribution) affects performance as much as the
+				algorithm choice.
+			</li>
+		</ul>
+		<p>
+			The ideal sorting algorithm would have the following properties:
+		</p>
+		<ul>
+			<li> Stable: Equal keys aren't reordered. </li>
+			<li> Operates in place, requiring O(1) extra space. </li>
+			<li> Worst-case O(n·lg(n)) key comparisons. </li>
+			<li> Worst-case O(n) swaps. </li>
+			<li> 
+				Adaptive: Speeds up to O(n) when data is nearly sorted or
+				when there are few unique keys.
+			</li>
+		</ul>
+		<p>
+			There is no algorithm that has all of these properties, and so the
+			choice of sorting algorithm depends on the application.
+		</p>
+		<p>
+			<i>Sorting is a vast topic; this site explores the topic of
+			in-memory generic algorithms for arrays.  External sorting,
+			radix sorting, string sorting, and linked list sorting—all
+			wonderful and interesting topics—are
+			deliberately omitted to limit the scope of discussion.</i>
+		</p>
+	</div>
+	<div id="directions">
+		<h2>Directions</h2>
+<ul>
+	<li>
+		Click on <img src="Sorting%20Algorithm%20Animations_dosyalar/reload-24x24.gif" alt=""> above to restart 
+		the animations in a row, a column, or the entire table.
+	</li>
+	<li>
+		Click directly on an animation image to start or restart it.
+	</li>
+	<li>
+		Click on a problem size number to reset all animations.
+	</li>
+</ul>
+
+		<h2>Key</h2>
+		<ul>
+			<li> Black values are sorted. </li>
+			<li> Gray values are unsorted. </li>
+			<li> A red triangle marks the algorithm position. </li>
+			<li> Dark gray values denote the current interval (shell, merge, quick). </li>
+			<li> A pair of red triangles marks the left and right pointers (quick). </li>
+		</ul>
+		<h2>References</h2>
+<p>
+	<a target="_blank" href="http://www.informit.com/store/product.aspx?isbn=0201361205"><i>Algorithms in Java, Parts 1-4, 3rd edition</i></a>
+	by <a target="_blank" href="http://www.cs.princeton.edu/%7Ers/">Robert Sedgewick</a>.
+	Addison Wesley, 2003.
+</p>
+<p>
+	<a target="_blank" href="http://netlib.bell-labs.com/cm/cs/pearls/"><i>Programming Pearls</i></a>
+	by <a target="_blank" href="http://www.research.avayalabs.com/gcm/usa/en-us/people/all/bentley.htm">Jon Bentley</a>.
+	Addison Wesley, 1986.
+</p>
+<p>
+	<a target="_blank" href="http://www.sorting-algorithms.com/static/QuicksortIsOptimal.pdf"><i>Quicksort is Optimal</i></a>
+	by <a target="_blank" href="http://www.cs.princeton.edu/%7Ers/">Robert Sedgewick</a>
+	and <a target="_blank" href="http://www.research.avayalabs.com/gcm/usa/en-us/people/all/bentley.htm">Jon Bentley</a>,
+	Knuthfest, Stanford University, January, 2002.
+</p>
+	</div>
+</div>
+
+
+		
+		<div id="comments">
+			<h2>Comments</h2>
+			<div id="login-status">
+				
+				To post a comment, you must <a href="http://www.sorting-algorithms.com/login?redirect=/">log in</a>.
+				
+			</div>
+			<script type="text/javascript">
+			function OpenComment()  { $('comment_link').hide(); $('comment_entry').show(); }
+			function CloseComment() { $('comment_link').show(); $('comment_entry').hide(); }
+			</script>
+			<div id="comment_entry" class="comment" style="display: none;">
+				<form action="" method="post">
+					<textarea name="text"></textarea>
+					<br>
+					<script type="text/javascript" src="Sorting%20Algorithm%20Animations_dosyalar/challenge">
+					</script><script type="text/javascript" src="Sorting%20Algorithm%20Animations_dosyalar/recaptcha.js"></script><div class=" recaptcha_nothad_incorrect_sol recaptcha_isnot_showing_audio" id="recaptcha_widget_div" style=""><div id="recaptcha_area"><table id="recaptcha_table" class="recaptchatable recaptcha_theme_red">
+<tbody><tr>
+<td colspan="6" class="recaptcha_r1_c1"></td>
+</tr>
+<tr>
+<td class="recaptcha_r2_c1"></td>
+<td colspan="4" class="recaptcha_image_cell"><div style="width: 300px; height: 57px;" id="recaptcha_image"><img style="display: block;" src="Sorting%20Algorithm%20Animations_dosyalar/image.jpeg" height="57" width="300"></div></td>
+<td class="recaptcha_r2_c2"></td>
+</tr>
+<tr>
+<td rowspan="6" class="recaptcha_r3_c1"></td>
+<td colspan="4" class="recaptcha_r3_c2"></td>
+<td rowspan="6" class="recaptcha_r3_c3"></td>
+</tr>
+<tr>
+<td rowspan="3" class="recaptcha_r4_c1" height="49">
+<div class="recaptcha_input_area">
+<label for="recaptcha_response_field" class="recaptcha_input_area_text"><span id="recaptcha_instructions_image" class="recaptcha_only_if_image recaptcha_only_if_no_incorrect_sol">Type the two words:</span><span id="recaptcha_instructions_audio" class="recaptcha_only_if_no_incorrect_sol recaptcha_only_if_audio">Type what you hear:</span><span id="recaptcha_instructions_error" class="recaptcha_only_if_incorrect_sol">Incorrect. Try again.</span></label><br>
+<span style="display: none;" id="recaptcha_challenge_field_holder"><input name="recaptcha_challenge_field" id="recaptcha_challenge_field" value="02vlL7vOdsz6_arTbCcS9zatn0wHULpbZQ11nwyiici5L5S2tQEyioemxOm8L4rt-495h_RP1rFSqsBZuIe04tXXclJ3GsdQwsdF1cXMKB073yMelh51OlVTP9FTtTVc89cXtJOewaUN8DKmRaO1j_j1ndlW_nVwsYZTiMHhotXPr229dLucS_dp6p7Fx4Z4RSSAXF9L2OK-hmoQnTjyCnRwxS6D2TdmB580mi9amMbTK3k1oHt2TnQ59epwrMPpUaAJuYhHA5v0JCJwcIgELOsVtUpuYB" type="hidden"></span><input autocomplete="off" name="recaptcha_response_field" id="recaptcha_response_field" type="text">
+</div>
+</td>
+<td rowspan="4" class="recaptcha_r4_c2"></td>
+<td><a title="Get a new challenge" href="javascript:Recaptcha.reload%20();" id="recaptcha_reload_btn"><img alt="Get a new challenge" src="Sorting%20Algorithm%20Animations_dosyalar/refresh.gif" id="recaptcha_reload" height="17" width="25"></a></td>
+<td rowspan="4" class="recaptcha_r4_c4"></td>
+</tr>
+<tr>
+<td><a title="Get an audio challenge" href="javascript:Recaptcha.switch_type('audio');" id="recaptcha_switch_audio_btn" class="recaptcha_only_if_image"><img src="Sorting%20Algorithm%20Animations_dosyalar/audio.gif" id="recaptcha_switch_audio" alt="Get an audio challenge" height="16" width="25"></a><a title="Get a visual challenge" href="javascript:Recaptcha.switch_type('image');" id="recaptcha_switch_img_btn" class="recaptcha_only_if_audio"><img src="Sorting%20Algorithm%20Animations_dosyalar/text.gif" id="recaptcha_switch_img" alt="Get a visual challenge" height="16" width="25"></a></td>
+</tr>
+<tr>
+<td><a title="Help" target="_blank" href="http://recaptcha.net/popuphelp/" id="recaptcha_whatsthis_btn"><img alt="Help" src="Sorting%20Algorithm%20Animations_dosyalar/help.gif" id="recaptcha_whatsthis" height="16" width="25"></a></td>
+</tr>
+<tr>
+<td class="recaptcha_r7_c1"></td>
+<td class="recaptcha_r8_c1"></td>
+</tr>
+</tbody></table>
+</div></div><script>Recaptcha.widget = Recaptcha.$("recaptcha_widget_div"); Recaptcha.challenge_callback();</script>
+					<input value="Post Comment" type="submit">
+					<input value="Cancel" onclick="javascript:CloseComment();" type="button">
+				</form>
+			</div>
+			
+			<div class="comment">
+Radix sort would be good, should produce O(N) performance, and is
+stable, but a bit more complex. Can be adapted to floats and speed is
+proportional to the number of bytes.<br>
+				— posted by
+				
+				<span class="author" title="You must be logged in to see comment author names.">someone</span>
+				
+				on 14-Mar-2010
+				
+			</div>
+			
+			<div class="comment">
+				Nice wensite<br>
+				— posted by
+				
+				<span class="author" title="You must be logged in to see comment author names.">someone</span>
+				
+				on 27-Jan-2010
+				
+			</div>
+			
+			<div class="comment">
+Hi I've finished the dev off a new sorting algorithme witch I called
+"A.L.E.X." sins few days , and i wona know how to do to
+register/protect it under a copyright licence. samir L. 2010<br>
+				— posted by
+				
+				<span class="author" title="You must be logged in to see comment author names.">someone</span>
+				
+				on 13-Jan-2010
+				
+			</div>
+			
+			<div class="comment">
+Two-way bubble sort (shaker sort) is a variation on bubble sort, and
+isn't different enough (or useful enough) to merit being included here
+in my opinion. Shaker sort has all the same analytical properties of
+bubble sort, and is slightly faster in some instances, but shaker sort
+does not get used in practice as far as I know.<br>
+				— posted by
+				
+				<span class="author" title="You must be logged in to see comment author names.">someone</span>
+				
+				on 20-Dec-2009
+				
+			</div>
+			
+			<div class="comment">
+				hey, may you add the two-way bubblesorting to the comparsion chart?<br>
+				— posted by
+				
+				<span class="author" title="You must be logged in to see comment author names.">someone</span>
+				
+				on 8-Dec-2009
+				
+			</div>
+			
+		</div>
+
+		<div id="footer">
+			<table>
+				<tbody><tr>
+					<td id="copyright">
+						© 2007 David R. Martin<br>david dot r dot martin at gmail dot com
+					</td>
+					<td id="ge">
+						<!-- Powered by GAE -->
+						<a class="image" target="_blank" href="http://code.google.com/appengine/"><img src="Sorting%20Algorithm%20Animations_dosyalar/appengine-noborder-120x30.gif" alt="Powered by Google App Engine" height="30" width="120"></a>	
+					</td>
+					<td id="validate">
+						<!-- CSS Validator -->
+						<a class="image" target="_blank" href="http://jigsaw.w3.org/css-validator/check/referer"><img src="Sorting%20Algorithm%20Animations_dosyalar/vcss-blue.gif" alt="Valid CSS!" height="20" width="57"></a>
+						<!-- HTML Validator -->
+						<a class="image" target="_blank" href="http://validator.w3.org/check?uri=referer"><img src="Sorting%20Algorithm%20Animations_dosyalar/valid-xhtml10-blue.png" alt="Valid XHTML 1.0 Transitional" height="20" width="57"></a>
+						<!-- Page Rank -->
+						<a class="image" target="_blank" href="http://www.prchecker.info/"><img style="position: relative; bottom: 4px;" src="Sorting%20Algorithm%20Animations_dosyalar/getpr.gif" alt="Display Pagerank"></a>
+					</td>
+					<td id="counter">
+						<!-- Page Counter -->
+						<a class="image" target="_blank" href="http://www.easycounter.com/"><img src="Sorting%20Algorithm%20Animations_dosyalar/counter.png" alt=""></a>
+					</td>
+				</tr>
+			</tbody></table>
+		</div>
+		<div class="clear"></div>
+
+		<!-- Google Analytics -->
+		<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script><script src="Sorting%20Algorithm%20Animations_dosyalar/ga.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-6383900-1");
+		pageTracker._trackPageview();
+		</script>
+
+	</div>
+</body></html>

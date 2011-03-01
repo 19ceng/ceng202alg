@@ -1,0 +1,22 @@
+
+var RecaptchaState = {
+    challenge : '02pQbY1T6TViN_zAtA0tIT_oMoHOlocqcvEIVodNpSWaZenBT2eRlblPSPC_wJ2_UZOwX7LHmVhLZY68dIDMnj15c6wHcVy6pWaHAYibNXCy6mgmg89elA_ZY378Jr5ZPHaESftgao5QPnVP6U2yxtTq3tisBVhzTvLOzvgFWZh3_VuA8SOD5QVmYxxoEX-1FFacnOht5xAUHSrAPJmj7d03ZxN-V4jBFVutbc6QNo0i0fOs7Ex0MY8UJpF_N0-BBpmd8oPoEhMkC7EoJpToewA3RZsBcB',
+    timeout : 25000,    
+    server : 'http://api.recaptcha.net/',
+    site : '6LfoCAkAAAAAABWE1-Wev4s_toCrI6xQLl9LgfKQ',
+    error_message : '',
+    programming_error : '',
+    is_incorrect : false
+};
+
+document.write('<scr'+'ipt type="text/javascript" s'+'rc="' + RecaptchaState.server + 'js/recaptcha.js"></scr'+'ipt>');
+(function() {
+    var _recaptcha = document.createElement('script');
+    _recaptcha.type = 'text/javascript';
+    _recaptcha.async = true;
+    _recaptcha.src = (document.location.protocol == 'https:' ? 'https' : 'http') + '://www.google.com/recaptcha/api/challenge?k=6LfoCAkAAAAAABWE1-Wev4s_toCrI6xQLl9LgfKQ&darklaunch=1';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_recaptcha);
+
+})();
+    
+
